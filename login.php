@@ -34,7 +34,14 @@
                     };
                     
                     $.post('valida.php', dados, function(retorna){
-                        document.getElementById('msg').innerHTML = retorna;
+                        if (retorna === '"erro"') {
+                            var masg = "Usuario não encontrado com esse e-mail";
+                            document.getElementById('msg').innerHTML = msg;    
+                        }
+                        else{
+                            window.location.href = retorna;
+                        }
+
                     }); 
                 }
                 else{
